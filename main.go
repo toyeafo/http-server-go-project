@@ -33,17 +33,12 @@ func main() {
 		}
 
 		parts := strings.Split(string(textBytes[:n]), "\n")
-		line += strings.Join(parts, "")
-		if len(parts) < 2 {
-			continue
-		}
 
-		if len(parts) > 1 {
-			for range parts[:len(parts)-1] {
-				fmt.Printf("read: %s\n", line)
-			}
+		for x := range parts[:len(parts)-1] {
+			fmt.Printf("read: %s%s\n", line, parts[x])
+			line = ""
 		}
-		line = parts[len(parts)-1]
+		line += parts[len(parts)-1]
 	}
 
 }
